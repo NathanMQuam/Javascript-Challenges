@@ -7,7 +7,25 @@
     // output: 7
 
 function daysPosition(day, offset) {
-
+    switch(day) {
+        case "sunday":
+            return (offset ? 7 : 1);
+        case "monday":
+            return (offset ? 1 : 2);
+        case "tuesday":
+            return (offset ? 2 : 3);
+        case "wednesday":
+            return (offset ? 3 : 4);
+        case "thursday":
+            return (offset ? 5 : 5);
+        case "friday":
+            return (offset ? 5 : 6);
+        case "saturday":
+            return (offset ? 6 : 7);
+        
+        default:
+            return "That's not a day of the week";
+    }
 }
 
 
@@ -27,7 +45,23 @@ function daysPosition(day, offset) {
  */
 
  function golfScore(score, par) {
-
+    let difference = score - par;
+    switch (difference) {
+        case -3:
+            return "Ace";
+        case -2:
+            return "Eagle";
+        case -1:
+            return "Birdie";
+        case 0:
+            return "Par";
+        case 1:
+            return "Bogie";
+        case 2:
+            return "Double Bogie";
+        default:
+            return "Ouch";
+    }
  }
  
 
@@ -52,5 +86,45 @@ function daysPosition(day, offset) {
 let count = 0
 
 function cardCounter(card) {
+    switch (card) {
+        case "A":
+            count--;            
+            break;
+        case "K":
+            count--;
+            break;
+        case "Q":
+            count--;
+            break;
+        case "J":
+            count--;
+            break;
+        case "10":
+            count--;
+            break;
+        case "2":
+            count++;
+            break;
+        case "3":
+            count++;
+            break;
+        case "4":
+            count++;
+            break;
+        case "5":
+            count++;
+            break;
+        case "6":
+            count++;
+            break;
+        default:
+            break;
+    }
 
+    let action = "Hold";
+    if (count >= 0)
+        action = "Bet"
+
+    return count + " " + action;
+    console.log(card, count);
 }
