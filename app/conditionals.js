@@ -2,7 +2,7 @@
 
 function largerNum(num1, num2) {
     // you code here
-
+    return (num1 > num2 ? num1 : num2);
 }
 
 // 2. Given two numbers, amount correct and amount possible of a test, return the corresponding letter grade.
@@ -14,7 +14,19 @@ function largerNum(num1, num2) {
 // output: "F"
 
 function testGrader(score, possible) {
+    let numScore = score / possible;
+    //console.log(score, possible, numScore);
 
+    if(numScore >= .9)
+        return "A";
+    else if(numScore >= .8)
+        return "B";
+    else if(numScore >= .7)
+        return "C";
+    else if(numScore >= .6)
+        return "D";
+    else
+        return "F";
 }
 
 
@@ -29,13 +41,26 @@ function testGrader(score, possible) {
 //Make sure your ranges are inclusive
 
 function timeOfDayGreeting(hour) {
-    // you code below
-
+    if(hour >= 5 && hour <= 11)
+        return "good morning"
+    else if(hour >= 12 && hour <= 17)
+        return "good afternoon"
+    else if(hour >= 18 && hour <= 21)
+        return "good evening"
+    else
+        return "good night";
 }
 
 //4. Write a function that will take in a number and return 'fever' if it indicates a fever (over 98.6) and additionally if the person should go to the hospital (at or above 103) 'fever go to hospital' (hint: try this with string concatenation), if it is under return 'no fever'
 function isFever(temp) {
+    let result = "no fever";
 
+    if(temp > 98.6)
+        result = "fever";
+    if(temp >= 103)
+        result += " go to hospital";
+    
+    return result;
 }
 
 //5. Write a function that takes in a car object, if it is not moving then return true
@@ -47,7 +72,7 @@ let myCar = {
 }
 
 function isStopped(car) {
-
+    return !car.moving;
 }
 
 //6. Write a function that returns true if a dish is yours and is dirty, or false if one of the statements is false
@@ -58,5 +83,7 @@ let dish = {
 }
 
 function washDish(dish) {
-
+    if(dish.yourDish && dish.isDirty)
+        return true;
+    return false;
 }
