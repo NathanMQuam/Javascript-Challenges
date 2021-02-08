@@ -10,7 +10,6 @@ function concat(str1, str2, seperator = " ") {
 
 // Write a function that will capitalize the letter at a given position and return it
 function capitalizer(str, position) {
-   console.log(str);
    //return str.substr(0, position) + str.charAt(position).toUpperCase() + str.substr(position + 1, str.length-1)
    return str.charAt(position).toUpperCase();
 }
